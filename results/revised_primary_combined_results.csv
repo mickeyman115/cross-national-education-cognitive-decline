@@ -1,0 +1,12 @@
+"model","estimand","comparison","estimate","SE","CI_lo","CI_hi"
+"Revised_demographic_retest_M0","instantaneous_rate_year_4","China",0.161618405089495,0.027001040853599,0.108697337471347,0.214539472707644
+"Revised_demographic_retest_M0","instantaneous_rate_year_4","USA",-0.00107509235883221,0.0157810150911426,-0.0320053135769548,0.0298551288592904
+"Revised_demographic_retest_M0","instantaneous_rate_year_4","England",0.0132465482392939,0.0135672060383978,-0.0133446869668002,0.039837783445388
+"Revised_demographic_retest_M0","instantaneous_rate_year_4","Europe",-0.0175214660607956,0.00654620903652575,-0.0303518000076568,-0.00469113211393454
+"Revised_demographic_retest_M0","cross_cohort_difference_year_4","China - USA [Mid-Low]",0.162693497448328,0.0312745366789748,0.10139653192436,0.223990462972295
+"Revised_demographic_retest_M0","cross_cohort_difference_year_4","China - England [Mid-Low]",0.148371856850201,0.0302179629833993,0.0891457377165743,0.207597975983829
+"Revised_demographic_retest_M0","cross_cohort_difference_year_4","China - Europe [Mid-Low]",0.179139871150291,0.0277832514282911,0.124685698977419,0.233594043323162
+"Revised_demographic_retest_M0","average_annual_change_difference_0_to_4","China",0.0932536548715567,0.023569415849825,0.0470584486692521,0.139448861073861
+"Revised_demographic_retest_M0","average_annual_change_difference_0_to_4","USA",-0.00400162523002949,0.0137470332135281,-0.0309453152228205,0.0229420647627615
+"Revised_demographic_retest_M0","average_annual_change_difference_0_to_4","England",0.0148343525429121,0.0138940030747801,-0.0123973930847457,0.0420660981705698
+"Revised_demographic_retest_M0","average_annual_change_difference_0_to_4","Europe",0.00833818756685126,0.00562091870051997,-0.00267861064619555,0.0193549857798981
