@@ -1,0 +1,17 @@
+variable,role,description
+id,identifier,Cohort-prefixed respondent identifier used only in authorised local processing
+study,exposure_context,China USA England or Europe cohort label
+wave,time,Cohort wave number
+year,time,Calendar year of interview
+time_in_study,time,Years since each participant's first eligible cognitive observation
+age,covariate,Age at interview in years
+age_base,covariate,Age at first eligible cognitive observation
+female,covariate,Indicator for female sex
+edu3_f,exposure,Harmonised low intermediate or high education category
+cogtot,outcome,Immediate plus delayed word-recall score
+retest,covariate,Indicator for previous cognitive assessment
+child_ses,covariate,Harmonised childhood socioeconomic-position category
+wealth_percentile,covariate,Within-cohort baseline wealth rank scaled from 0 to 1
+income_percentile,covariate,Within-cohort baseline income rank scaled from 0 to 1
+ipcw,weight,Stabilised inverse-probability-of-observation weight among survivors
+

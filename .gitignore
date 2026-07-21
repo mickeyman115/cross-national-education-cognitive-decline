@@ -1,0 +1,24 @@
+# Restricted cohort data and derived person-level files
+data/raw/
+data/derived/
+*.dta
+*.sav
+*.sas7bdat
+*.rds
+*.RData
+*.rda
+
+# Generated files
+output/
+figures/
+*.log
+
+# Local configuration and credentials
+.Renviron
+.Rhistory
+.Rproj.user/
+.DS_Store
+*.key
+*.pem
+*token*
+

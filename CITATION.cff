@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the associated article and this repository."
+title: "Cross-national heterogeneity in the association between education and cognitive decline"
+type: software
+version: 1.0.0
+date-released: 2026-07-21
+authors:
+  - family-names: Mi
+    given-names: Xiaomeng
+  - family-names: Xiong
+    given-names: Suting
+  - family-names: Shi
+    given-names: Anqi
+  - family-names: Luo
+    given-names: Wenshu
+  - family-names: Xu
+    given-names: Wenguo
+  - family-names: Yao
+    given-names: Fang
+  - family-names: Xu
+    given-names: Wenchao
+repository-code: "https://github.com/mickeyman115/cross-national-education-cognitive-decline"
+license: MIT
+

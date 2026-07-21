@@ -1,0 +1,10 @@
+"step","value"
+"Full sample people",144642
+"Full sample observations",542426
+"M0 nobs",542426
+"M0 n_ids",144642
+"M1 nobs (per imp)",542426
+"M1 n_ids (per imp)",144642
+"MICE m",20
+"MICE maxit",20
+"MICE seed",20260720
