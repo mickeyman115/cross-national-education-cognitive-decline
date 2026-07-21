@@ -1,18 +1,22 @@
 # Education and cognitive decline across four ageing cohorts
 
 This repository contains the locked analysis code and aggregate outputs for a
-longitudinal comparison of the education-cognitive decline association in
+longitudinal comparison of education and episodic-memory change in
 CHARLS, HRS, ELSA, and SHARE. The primary analysis included 144,642
 participants and 542,426 cognitive observations.
 
 ## Scope
 
-The code estimates cohort-specific differences in the instantaneous cognitive
-trajectory at four years between intermediate and low education groups using
-quadratic-time linear mixed models. It also implements childhood socioeconomic
-adjustment with multiple imputation, economic-variable mechanism exploration,
-IPCW sensitivity analyses, CHARLS entry-wave analyses, and the manuscript
-figures.
+The revised primary estimand is the intermediate-minus-low education difference
+in average annual episodic-memory change from cohort entry to year 4. The model
+combines first-return and subsequent-response weights, demographic and retest
+trajectory terms, and participant-specific random intercepts and time slopes.
+The repository also implements a secondary year-4 instantaneous-rate estimand
+and a common-specification synthesis across supported SHARE countries.
+
+Scripts 04–10 preserve earlier socioeconomic and economic-position analyses for
+audit history. They use the superseded trajectory specification and are not the
+basis for attenuation or mediation claims in the revised manuscript.
 
 This is a code-transparent but data-restricted release. Individual-level data,
 imputation objects, and fitted model objects are intentionally excluded.
@@ -47,24 +51,19 @@ Run from the repository root:
 Rscript analysis/01_data_prep.R
 Rscript analysis/02_extract_covariates_ipcw.R
 Rscript analysis/03_build_ipcw.R
-Rscript analysis/04_extract_ses_wealth.R
-Rscript analysis/05_impute_common_sample.R
-Rscript analysis/06_fit_mechanism_models.R
-Rscript analysis/07_extract_fullsample_child_ses.R
-Rscript analysis/08_primary_analysis.R
-Rscript analysis/09_sensitivity_analysis.R
-Rscript analysis/10_export_mechanism_results.R
-Rscript analysis/11_make_submission_figures.R
+Rscript analysis/11_revised_primary_without_first_return.R
+Rscript analysis/12_first_return_selection.R
+Rscript analysis/13_share_country_synthesis.R
+Rscript analysis/14_final_revised_outputs.R
+Rscript analysis/15_make_revised_tlhl_figures.R
 ```
 
-Alternatively, `Rscript run_pipeline.R` executes analysis steps 1–10 in order.
-Figure generation is kept separate because it requires the fitted primary
-model produced by the pipeline.
+Alternatively, `Rscript run_pipeline.R` executes the revised primary analysis
+through the final aggregate result tables. Figure generation is kept separate.
 
-The complete pipeline is computationally intensive. The multiple-imputation
-mixed models can require many hours on a standard workstation. The aggregate
-locked outputs are supplied in `results/` so readers can audit the reported
-estimates without receiving restricted participant records.
+The mixed models are computationally intensive. The aggregate locked outputs
+are supplied in `results/` so readers can audit the reported estimates without
+receiving restricted participant records.
 
 ## Software
 
@@ -75,10 +74,10 @@ The locked run used R 4.6.0. Package and platform details are recorded in
 ## Interpretation boundary
 
 This observational analysis does not establish a causal effect of education.
-The economic-variable models are mechanism-oriented sequential-adjustment
-analyses, not formal mediation models. IPCW addresses observed predictors of
-subsequent response among survivors and does not prove the absence of all
-attrition or mortality bias.
+First-return and conditional-response weighting address selection associated
+with measured variables under modelling assumptions; they do not prove absence
+of selection or mortality bias. Study-specific education categories do not
+establish equivalent schooling dose, quality, or social meaning across cohorts.
 
 ## Licence and citation
 

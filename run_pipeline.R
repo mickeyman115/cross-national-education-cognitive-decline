@@ -1,19 +1,16 @@
 #!/usr/bin/env Rscript
 
-# Complete locked workflow. Run from the repository root after setting the four
+# Revised primary workflow. Run from the repository root after setting the four
 # authorised cohort-file environment variables documented in README.md.
 
 steps <- c(
   "analysis/01_data_prep.R",
   "analysis/02_extract_covariates_ipcw.R",
   "analysis/03_build_ipcw.R",
-  "analysis/04_extract_ses_wealth.R",
-  "analysis/05_impute_common_sample.R",
-  "analysis/06_fit_mechanism_models.R",
-  "analysis/07_extract_fullsample_child_ses.R",
-  "analysis/08_primary_analysis.R",
-  "analysis/09_sensitivity_analysis.R",
-  "analysis/10_export_mechanism_results.R"
+  "analysis/11_revised_primary_without_first_return.R",
+  "analysis/12_first_return_selection.R",
+  "analysis/13_share_country_synthesis.R",
+  "analysis/14_final_revised_outputs.R"
 )
 
 for (step in steps) {
@@ -24,5 +21,4 @@ for (step in steps) {
   }
 }
 
-cat("\nLocked analysis pipeline completed.\n")
-
+cat("\nRevised primary analysis pipeline completed.\n")
