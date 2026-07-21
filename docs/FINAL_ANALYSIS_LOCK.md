@@ -1,41 +1,61 @@
-# Final Analysis Lock Audit Report
+# Final revised analysis lock
 
-This document serves as the formal audit record of the final analysis pipeline executed on 2026-07-21 for the study **"Cross-National Heterogeneity in the Protective Effect of Education on Cognitive Decline."**
+**Lock date:** 2026-07-21
+**Status:** revised primary analysis complete
+**Supersedes:** the earlier lock based on the 0.220 year-4 estimate
 
-## 1. Primary Analysis Conclusions
+## Primary population and estimand
 
-Based on the full analytic sample of 144,642 unique individuals (542,426 longitudinal observations), the final fixed models conclude:
-1. 全样本中，中国Mid–Low教育组的第4年瞬时年斜率差约0.22；
-2. 该教育梯度显著大于三个比较队列（美国 HRS、英国 ELSA、欧洲 SHARE）；
-3. 童年 SES 调整后估计基本不变；
-4. 经济共同样本中，财富与收入联合调整（M4）使点估计约衰减10%，但该结果仅作为机制探索，不是正式的中介效应结论；
-5. CHARLS 2011 初始队列独立验证支持了主要的教育梯度差异；
-6. IPCW 敏感性分析显示主要结论对当前的缺失权重方案不敏感，但这不能证明完全不存在失访或死亡偏倚。
+The baseline-eligible population contained 207,223 adults aged 50–100 years with complete age, sex, harmonised education, and at least one episodic-memory assessment. Longitudinal mixed-effects models used 144,642 repeated observers contributing 542,426 assessments. Stabilised first-return weights reweighted repeated observers towards the baseline-eligible population; these weights were multiplied by the existing conditional-response IPCW.
 
-## 2. Imputation & Data Constraints
+The primary estimand is the intermediate-minus-low education difference in average annual episodic-memory change from cohort entry to year 4. The year-4 instantaneous derivative is secondary.
 
-- **Europe_Unknown Country Codes**: There are 9,719 individuals from Europe with an "Unknown" specific country code. Among them, 358 individuals required imputation for childhood SES. Due to this minor imputation constraint, the M1 model incorporates these within the pooled SHARE sample. No further re-estimation of M1 is required.
-- **Algebraic Consistency**: All cross-national algebraic consistency checks (e.g., `(China - USA) == (China_Slope - USA_Slope)`) passed with a residual tolerance of `1e-8`.
+## Revised primary results
 
-## 3. Sensitivity Analyses
+| Comparison | Average annual difference, 0–4 years (95% CI), points/year |
+|---|---:|
+| CHARLS intermediate minus low | 0.093 (0.047 to 0.140) |
+| HRS intermediate minus low | −0.019 (−0.047 to 0.008) |
+| ELSA intermediate minus low | 0.005 (−0.022 to 0.032) |
+| Pooled SHARE intermediate minus low | 0.004 (−0.007 to 0.014) |
+| CHARLS minus HRS | 0.113 (0.059 to 0.167) |
+| CHARLS minus ELSA | 0.088 (0.035 to 0.142) |
+| CHARLS minus pooled SHARE | 0.090 (0.042 to 0.137) |
 
-### A. CHARLS Cohort Validation
-- **Wave 2011 Cohort**: Supported the main educational gradient.
-- **Wave 2013 Refreshment**: 无直接 t=4 观测支持，不作为正式敏感性结论。
-- **Combined 2011+2013 Cohort**: Validated the primary gradient findings.
+Holm-adjusted p values for the three cross-cohort contrasts were 0.00013, 0.00127, and 0.00049, respectively.
 
-### B. Collinearity & Model Instability (M4)
-- **M4 Diagnostics**: 设计矩阵满秩（88/88），但高阶交互模型条件指数较高（Kappa ~ 20293）。
-- **Conclusion**: 关键 M4 边际对比在 20 套插补中保持稳定，因此 M4 仅作为机制探索敏感性模型，单项交互系数不作实质解释。
+The secondary CHARLS year-4 instantaneous-rate contrast was 0.163 (95% CI 0.108 to 0.218). The corresponding CHARLS-minus-comparator contrasts were 0.165 for HRS, 0.148 for ELSA, and 0.180 for pooled SHARE.
 
-## 4. Output Artifacts
+## Selection analysis
 
-The final run produced the following cryptographic manifest for traceability:
-- `final_primary_results.csv`
-- `final_mechanism_results.csv`
-- `final_sensitivity_results.csv`
-- `charls_sensitivity.csv`
-- `ipcw_audit.csv`
-- `final_manifest_sha256.txt`
+Single-observation participants accounted for 23.4% of the CHARLS baseline-eligible population, 22.3% of HRS, 22.2% of ELSA, and 33.7% of SHARE. First-return models included education and sex in the numerator and flexible baseline age, flexible baseline memory, entry year, marital status, diabetes, hypertension, heart disease, and stroke in the denominator. The resulting first-return model c-statistics ranged from 0.660 to 0.893; cohort-specific effective sample-size ratios ranged from 0.925 to 0.968.
 
-The pipeline is now locked. No further models, subgroups, or bootstrap iterations will be added.
+The revised model without first-return weighting estimated a CHARLS 0–4-year contrast of 0.09325; the combined-weight model estimated 0.09319. The combined-weight model converged, was non-singular, and had full fixed-effect rank (108/108). This supports robustness to selection explained by measured baseline variables. It does not eliminate unmeasured selection, pre-enrolment survival bias, or weight-estimation uncertainty.
+
+## SHARE country heterogeneity
+
+Country analyses were restricted to low and intermediate education and required at least 200 repeated observers, at least 50 people in each education category, at least 50 observations between years 3 and 5, and maximum follow-up of at least 4 years. Nineteen SHARE countries met these criteria. Every country used the same quadratic-time, flexible-age, sex-time, retest-education, random-intercept, and random-slope specification with the combined selection weight; no fallback model was used.
+
+The random-effects pooled country estimate for average annual change was −0.021 points/year (95% CI −0.038 to −0.003; I²=38.9%; 95% prediction interval −0.072 to 0.030). Country estimates ranged from −0.134 to 0.042; none reached the CHARLS estimate of 0.093. Portugal had a boundary-singular random-slope fit and is retained with that diagnostic disclosed.
+
+## Exploratory socioeconomic models
+
+Earlier m=20 childhood-SEP and economic common-sample models remain archived as exploratory analyses. They were fitted under the earlier primary specification and are not used to quantify attenuation of the revised primary estimand. They may be described only as hypothesis-generating supplementary evidence and must not be called mediation analyses.
+
+## Claim ceiling
+
+The locked conclusion is an observational cross-cohort association: the study-specific intermediate-versus-low education contrast in memory change was larger in CHARLS than in HRS, ELSA, pooled SHARE, and the supported SHARE-country distribution. The analysis does not demonstrate that education causes neuroprotection, prevents dementia or Alzheimer’s disease, establishes cognitive reserve, proves psychometric equivalence, or eliminates selection bias.
+
+## Canonical outputs
+
+- `output/final_revised_primary_results.csv`
+- `output/first_return_selection_flow.csv`
+- `output/first_return_selection_profile.csv`
+- `output/first_return_weight_diagnostics.csv`
+- `output/first_return_model_diagnostics.csv`
+- `output/share_country_common_model_results.csv`
+- `output/share_country_random_effects_summary.csv`
+- `output/charls_vs_share_country_distribution.csv`
+- `docs/TLHL_EDUCATION_HARMONISATION_TABLE.csv`
+
+No further primary models, subgroups, or mechanism analyses are authorised for the initial submission unless a specific integrity check identifies a numerical or coding error.
