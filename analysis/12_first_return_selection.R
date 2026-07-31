@@ -221,7 +221,7 @@ ctrl <- lmerControl(
   optimizer = "bobyqa", optCtrl = list(maxfun = 300000),
   check.conv.grad = .makeCC(action = "warning", tol = 0.002)
 )
-cat("Fitting the revised M0 with combined first-return and conditional-response weights\n")
+cat("Fitting the primary model with combined first-return and conditional-response weights\n")
 mod <- lmer(
   cogtot ~
     poly(time_in_study, 2, raw = TRUE) * edu3_f * study +

@@ -199,7 +199,7 @@ meta_results <- meta_input %>%
   ungroup()
 write.csv(meta_results, file.path(out_dir, "share_country_random_effects_summary.csv"), row.names = FALSE)
 
-# Compare the prespecified CHARLS revised-M0 estimate with the distribution of
+# Compare the prespecified CHARLS primary estimate with the distribution of
 # SHARE country estimates. This is descriptive and not a causal comparison.
 charls <- read.csv(file.path(out_dir, "revised_primary_combined_results.csv")) %>%
   filter(comparison == "China") %>%
@@ -233,7 +233,7 @@ p <- ggplot(plot_data, aes(estimate, country)) +
   labs(
     x = "Mid versus low education difference in average annual memory change (points/year)",
     y = NULL,
-    caption = "Country estimates use an identical model; dashed red line is the CHARLS revised-M0 estimate."
+    caption = "Country estimates use an identical model; dashed red line is the CHARLS primary estimate."
   ) +
   theme_classic(base_size = 10)
 ggsave(file.path(out_dir, "share_country_forest_plot.png"), p, width = 7.2, height = 7.8, dpi = 400, bg = "white")

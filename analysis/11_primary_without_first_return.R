@@ -1,5 +1,5 @@
 ###############################################################################
-# 22. Revised combined M0 candidate after AI pre-review adjudication
+# Primary combined-weight model without first-return weighting
 #
 # Combines the defensible covariate specifications into one parsimonious model:
 # quadratic follow-up time, cohort-specific flexible baseline-age/time
@@ -33,7 +33,7 @@ ctrl <- lmerControl(
   check.conv.grad = .makeCC(action = "warning", tol = 0.002)
 )
 
-cat("Fitting revised demographic-plus-retest primary M0 candidate\n")
+cat("Fitting the prespecified demographic-plus-retest primary model\n")
 mod <- lmer(
   cogtot ~
     poly(time_in_study, 2, raw = TRUE) * edu3_f * study +
@@ -153,4 +153,4 @@ cat("\nResults\n")
 print(results)
 cat("\nDiagnostics\n")
 print(diagnostics)
-cat("\nRevised demographic-plus-retest M0 candidate complete\n")
+cat("\nDemographic-plus-retest primary model complete\n")

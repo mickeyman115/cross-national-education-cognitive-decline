@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this code, please cite the associated article and this repository."
-title: "Cross-national heterogeneity in the association between education and cognitive decline"
+title: "Education and episodic-memory change across four ageing cohorts"
 type: software
 version: 1.0.0
 date-released: 2026-07-21
@@ -21,4 +21,3 @@ authors:
     given-names: Wenchao
 repository-code: "https://github.com/mickeyman115/cross-national-education-cognitive-decline"
 license: MIT
-

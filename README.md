@@ -1,13 +1,13 @@
-# Education and cognitive decline across four ageing cohorts
+# Education and episodic-memory change across four ageing cohorts
 
 This repository contains the locked analysis code and aggregate outputs for a
 longitudinal comparison of education and episodic-memory change in
 CHARLS, HRS, ELSA, and SHARE. The primary analysis included 144,642
-participants and 542,426 cognitive observations.
+participants and 542,426 episodic-memory observations.
 
 ## Scope
 
-The revised primary estimand is the intermediate-minus-low education difference
+The primary estimand is the intermediate-minus-low education difference
 in average annual episodic-memory change from cohort entry to year 4. The model
 combines first-return and subsequent-response weights, demographic and retest
 trajectory terms, and participant-specific random intercepts and time slopes.
@@ -15,8 +15,8 @@ The repository also implements a secondary year-4 instantaneous-rate estimand
 and a common-specification synthesis across supported SHARE countries.
 
 Scripts 04–10 preserve earlier socioeconomic and economic-position analyses for
-audit history. They use the superseded trajectory specification and are not the
-basis for attenuation or mediation claims in the revised manuscript.
+audit history. They use an earlier exploratory specification not used for the
+reported analyses and are not the basis for attenuation or mediation claims.
 
 This is a code-transparent but data-restricted release. Individual-level data,
 imputation objects, and fitted model objects are intentionally excluded.
@@ -51,14 +51,14 @@ Run from the repository root:
 Rscript analysis/01_data_prep.R
 Rscript analysis/02_extract_covariates_ipcw.R
 Rscript analysis/03_build_ipcw.R
-Rscript analysis/11_revised_primary_without_first_return.R
+Rscript analysis/11_primary_without_first_return.R
 Rscript analysis/12_first_return_selection.R
 Rscript analysis/13_share_country_synthesis.R
-Rscript analysis/14_final_revised_outputs.R
-Rscript analysis/15_make_revised_tlhl_figures.R
+Rscript analysis/14_final_outputs.R
+Rscript analysis/15_make_manuscript_figures.R
 ```
 
-Alternatively, `Rscript run_pipeline.R` executes the revised primary analysis
+Alternatively, `Rscript run_pipeline.R` executes the primary analysis
 through the final aggregate result tables. Figure generation is kept separate.
 
 The mixed models are computationally intensive. The aggregate locked outputs

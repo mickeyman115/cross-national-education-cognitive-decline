@@ -1,5 +1,5 @@
 ###############################################################################
-# 25. Consolidate revised primary and bounded sensitivity outputs
+# Consolidate primary and bounded sensitivity outputs
 ###############################################################################
 
 suppressPackageStartupMessages({
@@ -92,7 +92,7 @@ robust_compare <- locked %>%
   )
 write.csv(robust_compare, file.path(out_dir, "first_return_robustness_comparison.csv"), row.names = FALSE)
 
-cat("Final revised primary results\n")
+cat("Final primary results\n")
 print(as.data.frame(final_results), row.names = FALSE)
 cat("\nFirst-return robustness comparison\n")
 print(as.data.frame(robust_compare), row.names = FALSE)

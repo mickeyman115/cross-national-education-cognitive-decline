@@ -1,5 +1,5 @@
 ###############################################################################
-# 26. Revised TLHL publication figures after AI pre-review adjudication
+# Submission-ready manuscript figures from locked aggregate outputs
 #
 # Figure contract
 # Core conclusion: the intermediate-versus-low education difference in 0-4-year
@@ -20,7 +20,7 @@ suppressPackageStartupMessages({
 
 source("analysis/00_config.R")
 proj_dir <- PROJECT_DIR
-out_dir <- file.path(proj_dir, "figures_revised")
+out_dir <- file.path(proj_dir, "figures_manuscript")
 source_dir <- file.path(out_dir, "source_data")
 dir.create(source_dir, showWarnings = FALSE, recursive = TRUE)
 
@@ -212,4 +212,4 @@ p4 <- ggplot(country, aes(estimate, country)) +
   ) + theme_pub(6.8)
 save_pub(p4, "Figure4_SHARE_country_heterogeneity", width_mm = 150, height_mm = 150)
 
-cat("Revised TLHL figures written to", out_dir, "\n")
+cat("Manuscript figures written to", out_dir, "\n")
